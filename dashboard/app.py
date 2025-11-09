@@ -1,7 +1,6 @@
 # ----------------------------
-# Fashion Price Intelligence - Luxury Black & Gold Edition
+# Fashion Price Intelligence - Streamlit Dashboard (Final Stable Build)
 # ----------------------------
-
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -17,136 +16,80 @@ from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 from catboost import CatBoostRegressor
 
 
-# ---------- PAGE SETTINGS ----------
+# ---------- PAGE UI ----------
 st.set_page_config(
     page_title="Fashion Price Intelligence",
-    page_icon="👑",
-    layout="wide"
+    page_icon="👜",
+    layout="wide",
 )
 
-# ---------- THEME COLORS (Black & Gold) ----------
-PRIMARY = "#D4AF37"  # Gold
-SECONDARY = "#1A1A1A"  # Rich Black
-BG = "#000000"  # Full black background
+PRIMARY = "#0e7490"
+ACCENT  = "#0891b2"
 
-# ---------- PREMIUM UI ----------
 st.markdown(f"""
 <style>
-body {{
-    background-color: {BG};
-}}
-.block-container {{
-    padding-top: 1.5rem !important;
-    padding-bottom: 1.5rem !important;
-    max-width: 1400px;
-}}
-.header-box {{
-    background: linear-gradient(135deg, {SECONDARY}, {PRIMARY});
-    padding: 35px;
-    border-radius: 20px;
-    color: white;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-    margin-bottom: 35px;
-}}
-.header-box h1 {{
-    margin: 0;
-    font-weight: 700;
-    font-size: 42px;
-}}
-.header-box p {{
-    margin-top: 6px;
-    font-size: 16px;
-    opacity: .9;
-}}
-
-.metric-card {{
-    background: #111;
-    border-radius: 14px;
-    padding: 20px;
-    border: 1px solid #333;
-    text-align: center;
-}}
-.metric-card h3 {{
-    color: #aaa;
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-weight: 500;
-}}
-.metric-card .value {{
-    font-size: 28px;
-    color: {PRIMARY};
-    font-weight: 800;
-}}
-
-.stButton>button {{
-    background-color: {PRIMARY};
-    color: black;
-    padding: 0.6rem 1.3rem;
-    border-radius: 10px;
-    border: none;
-    font-weight: 650;
-    transition: .2s;
-}}
-.stButton>button:hover {{
-    background-color: white;
-    transform: scale(1.04);
-}}
-
-.dataframe {{
-    background: white !important;
-}}
+  .block-container {{ padding-top: 2rem; padding-bottom: 2rem; }}
+  .metric-card {{
+      background: linear-gradient(90deg, {PRIMARY} 0%, {ACCENT} 100%);
+      color: white; padding: 20px; border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15); 
+  }}
 </style>
 """, unsafe_allow_html=True)
 
 
-# ---------- HEADER ----------
 st.markdown("""
-<div class="header-box">
-    <h1>👑 Fashion Price Intelligence</h1>
-    <p>Upload → Train → Predict → Market Intelligence</p>
+<div class="header">
+  <h1 style="margin:0;">Fashion Price Intelligence</h1>
+  <div>Upload → Map Columns → Train → Predict</div>
 </div>
 """, unsafe_allow_html=True)
 
 
 # ---------- LOAD DATA ----------
-BASE = Path(__file__).resolve().parent.parent
-SAMPLE = BASE / "data" / "raw_data.csv"
+BASE_DIR = Path(__file__).resolve().parent.parent
+SAMPLE_CSV = BASE_DIR / "data" / "raw_data.csv"
 
 st.sidebar.header("📦 Upload Data")
-file = st.sidebar.file_uploader("Upload Fashion Store CSV", type=["csv"])
-use_sample = st.sidebar.toggle("Use sample dataset", value=not bool(file))
+uploaded = st.sidebar.file_uploader("Upload your fashion store CSV", type=["csv"])
+use_sample = st.sidebar.toggle("Use sample dataset", value=not bool(uploaded))
 
-if file:
-    df = pd.read_csv(file)
-elif use_sample and SAMPLE.exists():
-    df = pd.read_csv(SAMPLE)
+if uploaded is not None:
+    df = pd.read_csv(uploaded)
+elif use_sample and SAMPLE_CSV.exists():
+    df = pd.read_csv(SAMPLE_CSV)
 else:
     st.stop()
 
-df = df.apply(lambda col: col.astype(str).str.strip() if col.dtype == "object" else col)
+df = df.copy()
+for c in df.columns:
+    if df[c].dtype == "object":
+        df[c] = df[c].astype(str).str.strip()
 
 cols = list(df.columns)
 
 
 # ---------- COLUMN MAPPING ----------
 st.subheader("Column Mapping")
-c1, c2, c3, c4 = st.columns(4)
 
-col_pid = c1.selectbox("Product ID (optional)", ["-- none --"] + cols)
-col_cat = c2.selectbox("Category", cols)
+c1, c2, c3, c4 = st.columns(4)
+col_pid   = c1.selectbox("Product ID (optional)", ["-- none --"] + cols)
+col_cat   = c2.selectbox("Category", cols)
 col_brand = c3.selectbox("Brand", cols)
 col_price = c4.selectbox("Target Price", cols)
 
 col_rating = st.selectbox("Rating (optional)", ["-- none --"] + cols)
+include_pid_as_feature = (col_pid != "-- none --") and st.checkbox("Use Product ID as feature", False)
 
-include_pid = (col_pid != "-- none --") and st.checkbox("Use Product ID as Feature", value=True)
+# **FIX: Prevent same column selection**
+if len({col_cat, col_brand, col_price}) < 3:
+    st.error("Category, Brand, and Target Price must be different columns.")
+    st.stop()
 
 
-# ---------- FEATURES ----------
+# ---------- FEATURE ENGINEERING ----------
 def build_features(data):
     df2 = data.copy()
-
     df2[col_price] = pd.to_numeric(df2[col_price], errors="coerce")
     df2 = df2.dropna(subset=[col_price])
 
@@ -155,147 +98,82 @@ def build_features(data):
         df2[col_rating] = pd.to_numeric(df2[col_rating], errors="coerce")
         numeric_cols.append(col_rating)
 
-    df2["category_avg_price"] = df2.groupby(col_cat)[col_price].transform("mean")
-    df2["brand_avg_price"] = df2.groupby(col_brand)[col_price].transform("mean")
+    df2["category_avg_price"]  = df2.groupby(col_cat)[col_price].transform("mean")
+    df2["brand_avg_price"]     = df2.groupby(col_brand)[col_price].transform("mean")
     df2["category_popularity"] = df2.groupby(col_cat)[col_price].transform("count")
-    df2["brand_popularity"] = df2.groupby(col_brand)[col_price].transform("count")
+    df2["brand_popularity"]    = df2.groupby(col_brand)[col_price].transform("count")
     df2["brand_category_combo"] = df2[col_brand].astype(str) + "_" + df2[col_cat].astype(str)
 
-    feat = []
-    if include_pid:
-        feat.append(col_pid)
-    feat += [col_cat, col_brand, "brand_category_combo"] + numeric_cols
-    feat += ["category_avg_price", "brand_avg_price", "category_popularity", "brand_popularity"]
+    features = []
+    if include_pid_as_feature and col_pid in df2.columns:
+        features.append(col_pid)
 
-    X = df2[feat].copy()
+    features += [col_cat, col_brand, "brand_category_combo"]
+    features += numeric_cols
+    features += ["category_avg_price", "brand_avg_price", "category_popularity", "brand_popularity"]
+
+    X = df2[features].copy()
     y = df2[col_price]
 
-    # Convert cat features to string (important fix)
-    for c in [col_cat, col_brand, "brand_category_combo"] + ([col_pid] if include_pid else []):
+    # **FIX: Make sure categorical columns are actually treated as strings**
+    for c in [col_pid if include_pid_as_feature else None, col_cat, col_brand, "brand_category_combo"]:
         if c in X:
             X[c] = X[c].astype(str)
 
-    cat_idx = [X.columns.get_loc(c) for c in X.columns if X[c].dtype == object]
-    return X, y, feat, cat_idx
+    # **FIX: Safe categorical detection (works in Streamlit Cloud)**
+    cat_idx = [X.columns.get_loc(c) for c in X.columns if str(X[c].dtype) == "object"]
+
+    return X, y, features, cat_idx
 
 
 # ---------- TRAIN ----------
-X, y, feat, cat_idx = build_features(df)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.2, random_state=42)
+@st.cache_data
+def train_model(df):
+    X, y, features, cat_idx = build_features(df)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-model = CatBoostRegressor(iterations=800, depth=8, learning_rate=0.08, loss_function="RMSE", verbose=False)
-model.fit(X_train, y_train, cat_features=cat_idx)
+    model = CatBoostRegressor(iterations=700, learning_rate=0.08, depth=8, loss_function="RMSE", verbose=False)
+    model.fit(X_train, y_train, cat_features=cat_idx)
 
-pred = model.predict(X_test)
+    pred = model.predict(X_test)
+    return model, features, X_test, y_test, pred
 
-r2 = r2_score(y_test, pred)
-rmse = np.sqrt(mean_squared_error(y_test, pred))
-mae = mean_absolute_error(y_test, pred)
+model, features, X_test, y_test, pred = train_model(df)
 
 
-# ---------- METRICS UI ----------
+# ---------- METRICS ----------
+st.subheader("Model Performance")
 m1, m2, m3, m4 = st.columns(4)
-m1.markdown(f"<div class='metric-card'><h3>TRAIN ROWS</h3><div class='value'>{len(X_train)}</div></div>", unsafe_allow_html=True)
-m2.markdown(f"<div class='metric-card'><h3>TEST ROWS</h3><div class='value'>{len(X_test)}</div></div>", unsafe_allow_html=True)
-m3.markdown(f"<div class='metric-card'><h3>FEATURE COUNT</h3><div class='value'>{len(feat)}</div></div>", unsafe_allow_html=True)
-m4.markdown(f"<div class='metric-card'><h3>R² SCORE</h3><div class='value'>{r2:.3f}</div></div>", unsafe_allow_html=True)
-
-st.markdown("### Actual vs Predicted")
-chart_df = pd.DataFrame({"Actual": y_test, "Predicted": pred})
-st.plotly_chart(px.scatter(chart_df, x="Actual", y="Predicted", color_discrete_sequence=[PRIMARY]), use_container_width=True)
+m1.metric("Train Rows", len(df)*0.8)
+m2.metric("Test Rows", len(df)*0.2)
+m3.metric("R² Score", f"{r2_score(y_test, pred):.3f}")
+m4.metric("RMSE", f"{np.sqrt(mean_squared_error(y_test, pred)):.1f}")
 
 
-# ---------- FULL PREDICTION ----------
+# ---------- PREDICTIONS TABLE ----------
+st.subheader("Predictions")
 X_full, _, _, _ = build_features(df)
 df["predicted_price"] = model.predict(X_full)
-st.markdown("### Predictions Table")
-st.dataframe(df.head(25), use_container_width=True)
+st.dataframe(df.head(20), use_container_width=True)
+st.download_button("Download predictions CSV", df.to_csv(index=False), "predictions.csv")
 
 
-# ---------- DOWNLOAD ----------
-st.download_button("Download Prediction CSV", df.to_csv(index=False), "predictions.csv")
+# ---------- SINGLE PREDICT ----------
+st.subheader("Predict Single Product")
+category = st.selectbox("Category", sorted(df[col_cat].unique()))
+brand = st.selectbox("Brand", sorted(df[col_brand].unique()))
+rating = st.slider("Rating", 1.0, 5.0, 4.0, 0.1)
 
+one = {
+    col_cat: category,
+    col_brand: brand,
+    "brand_category_combo": f"{brand}_{category}",
+    "category_avg_price": df.loc[df[col_cat] == category, col_price].mean(),
+    "brand_avg_price": df.loc[df[col_brand] == brand, col_price].mean(),
+    "category_popularity": (df[col_cat] == category).sum(),
+    "brand_popularity": (df[col_brand] == brand).sum(),
+}
 
-# ---------- PREMIUM BESTSELLER INSIGHTS ----------
-st.markdown("## 👑 Bestseller Strategy Insights (Premium)")
-
-insight_df = df.copy()
-
-# 1) Category Level Performance
-cat_summary = insight_df.groupby(col_cat).agg(
-    avg_price=("predicted_price", "mean"),
-    avg_rating=(col_rating, "mean") if col_rating != "-- none --" else ("predicted_price", "count"),
-    popularity=("predicted_price", "count")
-).reset_index()
-
-st.markdown("### Category Performance Overview")
-st.dataframe(cat_summary, use_container_width=True)
-
-# Category insights chart
-fig_cat = px.bar(
-    cat_summary,
-    x=col_cat,
-    y="popularity",
-    color="avg_price",
-    title="Category Popularity vs Average Predicted Price",
-    color_continuous_scale="tealrose",   # premium scale
-    height=420
-)
-fig_cat.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
-st.plotly_chart(fig_cat, use_container_width=True)
-
-
-# 2) Brand Strength Index
-brand_summary = insight_df.groupby(col_brand).agg(
-    avg_price=("predicted_price", "mean"),
-    total_items=("predicted_price", "count"),
-    popularity=("predicted_price", "count"),
-).reset_index()
-
-brand_summary["brand_strength_index"] = (
-    brand_summary["avg_price"] * 0.6 + brand_summary["popularity"] * 0.4
-)
-
-st.markdown("### Brand Strength & Price Influence")
-st.dataframe(brand_summary.sort_values("brand_strength_index", ascending=False).head(15), use_container_width=True)
-
-# Brand strength chart
-fig_brand = px.scatter(
-    brand_summary,
-    x="popularity",
-    y="avg_price",
-    size="brand_strength_index",
-    hover_name=col_brand,
-    title="Brand Strength Map (Premium Analysis)",
-    color="brand_strength_index",
-    color_continuous_scale="tealrose",   # premium scale
-    height=420
-)
-fig_brand.update_layout(plot_bgcolor="rgba(0,0,0,0)", paper_bgcolor="rgba(0,0,0,0)")
-st.plotly_chart(fig_brand, use_container_width=True)
-
-
-
-# 3) Bestseller Identification
-bestsellers = insight_df.sort_values("predicted_price", ascending=False).head(10)
-
-st.markdown("### 🔥 Top Predicted Revenue Products")
-st.dataframe(bestsellers[[col_pid, col_cat, col_brand, col_price, "predicted_price"]] if col_pid != "-- none --"
-             else bestsellers[[col_cat, col_brand, col_price, "predicted_price"]],
-             use_container_width=True)
-
-
-
-# 4) Pricing Strategy Recommendation
-st.markdown("### 💰 Price Strategy Recommendation Engine")
-
-avg_predicted = df["predicted_price"].mean()
-current_price = df[col_price].mean()
-
-if current_price < avg_predicted * 0.85:
-    st.success("Recommendation: **Increase your pricing slightly. Your brand is undervalued.**")
-elif current_price > avg_predicted * 1.20:
-    st.warning("Recommendation: **Consider offering discounts. Your pricing is above competitive market predictions.**")
-else:
-    st.info("Recommendation: **Your pricing is aligned with the predicted market range. Maintain strategic stability.**")
-
+tmp = pd.DataFrame([one]).reindex(columns=features, fill_value=0)
+price_pred = float(model.predict(tmp)[0])
+st.success(f"💰 Predicted Price: ₹ {price_pred:,.0f}")
