@@ -1,0 +1,241 @@
+2025-11-08 10:09:49 - [INFO]: \U0001f9f9 Starting data cleaning process...
+2025-11-08 10:09:49 - [INFO]: Loaded dataset with shape (200, 5)
+2025-11-08 10:09:49 - [INFO]: \u2705 Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (200, 5)
+2025-11-08 10:09:49 - [INFO]: \U0001f680 Training Model...
+2025-11-08 10:09:49 - [INFO]: \U0001f39b\ufe0f Preparing features...
+2025-11-08 10:09:49 - [INFO]: Categorical Columns Used: ['category', 'brand']
+2025-11-08 10:09:49 - [INFO]: Train: (160, 4), Test: (40, 4)
+2025-11-08 10:10:00 - [INFO]: \U0001f4ca R�: -0.2867
+2025-11-08 10:10:00 - [INFO]: RMSE: 1661.6223
+2025-11-08 10:10:00 - [INFO]: MAE: 1465.7394
+2025-11-08 10:10:00 - [INFO]: \u2705 Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.pkl
+2025-11-08 10:10:00 - [INFO]: \U0001f52e Starting prediction...
+2025-11-08 10:10:00 - [INFO]: \u2705 Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 10:10:10 - [INFO]: \U0001f9f9 Starting data cleaning process...
+2025-11-08 10:10:10 - [INFO]: Loaded dataset with shape (200, 5)
+2025-11-08 10:10:10 - [INFO]: \u2705 Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (200, 5)
+2025-11-08 10:10:10 - [INFO]: \U0001f680 Training Model...
+2025-11-08 10:10:10 - [INFO]: \U0001f39b\ufe0f Preparing features...
+2025-11-08 10:10:10 - [INFO]: Categorical Columns Used: ['category', 'brand']
+2025-11-08 10:10:10 - [INFO]: Train: (160, 4), Test: (40, 4)
+2025-11-08 10:10:22 - [INFO]: \U0001f4ca R�: -0.2867
+2025-11-08 10:10:22 - [INFO]: RMSE: 1661.6223
+2025-11-08 10:10:22 - [INFO]: MAE: 1465.7394
+2025-11-08 10:10:22 - [INFO]: \u2705 Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.pkl
+2025-11-08 10:10:22 - [INFO]: \U0001f52e Starting prediction...
+2025-11-08 10:10:22 - [INFO]: \u2705 Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 10:11:28 - [INFO]: \U0001f9f9 Starting data cleaning process...
+2025-11-08 10:11:28 - [INFO]: Loaded dataset with shape (200, 5)
+2025-11-08 10:11:28 - [INFO]: \u2705 Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (200, 5)
+2025-11-08 10:11:28 - [INFO]: \U0001f680 Training Model...
+2025-11-08 10:11:28 - [INFO]: \U0001f39b\ufe0f Preparing features...
+2025-11-08 10:11:28 - [INFO]: Categorical Columns Used: ['category', 'brand']
+2025-11-08 10:11:28 - [INFO]: Train: (160, 4), Test: (40, 4)
+2025-11-08 10:11:39 - [INFO]: \U0001f4ca R�: -0.2867
+2025-11-08 10:11:39 - [INFO]: RMSE: 1661.6223
+2025-11-08 10:11:39 - [INFO]: MAE: 1465.7394
+2025-11-08 10:11:39 - [INFO]: \u2705 Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.pkl
+2025-11-08 10:11:39 - [INFO]: \U0001f52e Starting prediction...
+2025-11-08 10:11:39 - [INFO]: \u2705 Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 10:23:52,324 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 10:23:52,330 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (200, 5)
+2025-11-08 10:23:52,331 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 10:23:52,331 - [INFO] - src.feature_engineering: 🎛️ Preparing features...
+2025-11-08 10:23:52,336 - [INFO] - src.feature_engineering: Train: (160, 4), Test: (40, 4)
+2025-11-08 10:23:52,336 - [INFO] - src.feature_engineering: Categorical columns: ['category', 'brand']
+2025-11-08 10:24:15,035 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 10:24:15,035 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 10:24:15,037 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 10:24:15,046 - [INFO] - src.predict: ✅ Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 10:24:15,048 - [INFO] - src.predict: 🏆 Best item:
+product_id                55.0
+category                 Jeans
+brand                   Adidas
+price                     4077
+rating                     4.2
+predicted_price    2694.730408
+Name: 54, dtype: object
+2025-11-08 10:36:41,636 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 10:36:41,644 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (200, 5)
+2025-11-08 10:36:41,644 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 10:36:41,645 - [INFO] - src.feature_engineering: 🎛️ Preparing features...
+2025-11-08 10:36:41,649 - [INFO] - src.feature_engineering: Train: (x=160, f=4), Test: (x=40, f=4)
+2025-11-08 10:36:41,650 - [INFO] - src.feature_engineering: Categorical columns: ['category', 'brand']
+2025-11-08 10:37:08,842 - [INFO] - src.train_model: 📊 Metrics — R²: -0.3763 | RMSE: 1718.50 | MAE: 1560.69
+2025-11-08 10:37:08,849 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 10:37:08,849 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 10:37:08,849 - [INFO] - src.train_model: ✅ Metrics saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metrics.json
+2025-11-08 10:37:08,849 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 10:37:08,861 - [INFO] - src.predict: ✅ Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 10:37:08,863 - [INFO] - src.predict: 🏆 Best item:
+product_id                17.0
+category                 Shoes
+brand                  Raymond
+price                      679
+rating                     3.2
+predicted_price    4426.903338
+Name: 16, dtype: object
+2025-11-08 10:47:20,577 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 10:47:20,588 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 5)
+2025-11-08 10:47:20,588 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 10:50:05,439 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 10:50:05,450 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 5)
+2025-11-08 10:50:05,451 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 10:50:05,455 - [INFO] - src.train_model: Train: (800, 4), Test: (200, 4)
+2025-11-08 10:50:05,455 - [INFO] - src.train_model: Categorical columns: ['category', 'brand']
+2025-11-08 10:50:45,515 - [INFO] - src.train_model: 📊 R²: -0.1307
+2025-11-08 10:50:45,516 - [INFO] - src.train_model: RMSE: 1922.2229
+2025-11-08 10:50:45,516 - [INFO] - src.train_model: MAE: 1615.6272
+2025-11-08 10:50:45,523 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 10:50:45,524 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 10:50:45,524 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 10:51:57,427 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 10:51:57,437 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 5)
+2025-11-08 10:51:57,438 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 10:51:57,443 - [INFO] - src.train_model: Train: (800, 4), Test: (200, 4)
+2025-11-08 10:51:57,443 - [INFO] - src.train_model: Categorical columns: ['category', 'brand']
+2025-11-08 10:52:37,943 - [INFO] - src.train_model: 📊 R²: -0.1307
+2025-11-08 10:52:37,943 - [INFO] - src.train_model: RMSE: 1922.2229
+2025-11-08 10:52:37,943 - [INFO] - src.train_model: MAE: 1615.6272
+2025-11-08 10:52:37,952 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 10:52:37,952 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 10:52:37,952 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 10:54:07,315 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 10:54:07,326 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 5)
+2025-11-08 10:54:07,327 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 10:54:07,331 - [INFO] - src.train_model: Train: (800, 4), Test: (200, 4)
+2025-11-08 10:54:07,332 - [INFO] - src.train_model: Categorical columns: ['category', 'brand']
+2025-11-08 10:54:47,335 - [INFO] - src.train_model: 📊 R²: -0.1307
+2025-11-08 10:54:47,336 - [INFO] - src.train_model: RMSE: 1922.2229
+2025-11-08 10:54:47,336 - [INFO] - src.train_model: MAE: 1615.6272
+2025-11-08 10:54:47,344 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 10:54:47,344 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 10:54:47,345 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 10:54:47,359 - [INFO] - src.predict: ✅ Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 10:54:47,359 - [INFO] - src.predict: 🏆 Best item:
+2025-11-08 10:54:47,360 - [INFO] - src.predict: product_id               186.0
+category                 Kurti
+brand                      H&M
+price                     5670
+rating                     4.6
+predicted_price    5304.377854
+Name: 185, dtype: object
+2025-11-08 10:58:07,858 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 10:58:07,881 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 10:58:07,882 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 10:59:26,822 - [INFO] - src.train_model: 📊 R²: -0.3877
+2025-11-08 10:59:26,823 - [INFO] - src.train_model: RMSE: 1945.88
+2025-11-08 10:59:26,823 - [INFO] - src.train_model: MAE: 1606.74
+2025-11-08 10:59:26,857 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 11:03:59,919 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 11:03:59,932 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 11:03:59,932 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 11:03:59,940 - [INFO] - src.train_model: Train: (800, 9), Test: (200, 9)
+2025-11-08 11:03:59,940 - [INFO] - src.train_model: Categorical columns: ['category', 'brand']
+2025-11-08 11:05:07,906 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 11:05:07,919 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 11:05:07,920 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 11:05:07,926 - [INFO] - src.train_model: Train: (800, 9), Test: (200, 9)
+2025-11-08 11:05:07,926 - [INFO] - src.train_model: Categorical columns: ['product_id', 'category', 'brand']
+2025-11-08 20:11:35,092 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 20:11:35,128 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 20:11:35,128 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 20:11:35,137 - [INFO] - src.train_model: Train: (800, 9), Test: (200, 9)
+2025-11-08 20:11:35,137 - [INFO] - src.train_model: Categorical columns: ['product_id', 'category', 'brand']
+2025-11-08 20:12:54,017 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 20:12:54,037 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 20:12:54,038 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 20:12:54,048 - [INFO] - src.train_model: Train: (800, 9), Test: (200, 9)
+2025-11-08 20:12:54,049 - [INFO] - src.train_model: Detected categorical columns: ['product_id', 'category', 'brand', 'brand_category_combo']
+2025-11-08 20:13:45,801 - [INFO] - src.train_model: 📊 R² Score: -0.0900
+2025-11-08 20:13:45,802 - [INFO] - src.train_model: RMSE      : 1877.84
+2025-11-08 20:13:45,803 - [INFO] - src.train_model: MAE       : 1547.23
+2025-11-08 20:13:45,819 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 20:13:45,819 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 20:13:45,820 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 20:18:27,293 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 20:18:27,315 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 20:18:27,317 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 20:18:27,332 - [INFO] - src.train_model: Train: (800, 9), Test: (200, 9)
+2025-11-08 20:18:27,333 - [INFO] - src.train_model: Detected categorical columns: ['product_id', 'category', 'brand', 'brand_category_combo']
+2025-11-08 20:19:22,111 - [INFO] - src.train_model: 📊 R² Score: -0.0900
+2025-11-08 20:19:22,112 - [INFO] - src.train_model: RMSE      : 1877.84
+2025-11-08 20:19:22,113 - [INFO] - src.train_model: MAE       : 1547.23
+2025-11-08 20:19:22,176 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 20:19:22,176 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 20:19:22,177 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 20:24:40,681 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 20:24:40,704 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 20:24:40,705 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 20:24:40,713 - [INFO] - src.train_model: Train: (800, 9), Test: (200, 9)
+2025-11-08 20:24:40,714 - [INFO] - src.train_model: Detected categorical columns: ['product_id', 'category', 'brand', 'brand_category_combo']
+2025-11-08 20:25:27,851 - [INFO] - src.train_model: 📊 R² Score: -0.0900
+2025-11-08 20:25:27,852 - [INFO] - src.train_model: RMSE      : 1877.84
+2025-11-08 20:25:27,853 - [INFO] - src.train_model: MAE       : 1547.23
+2025-11-08 20:25:27,924 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 20:25:27,924 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 20:25:27,924 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 20:25:27,953 - [INFO] - src.predict: ✅ Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 20:25:27,955 - [INFO] - src.predict: 🏆 Best Item Recommendation:
+product_id                    P0469
+category                      Kurti
+brand                           H&M
+price                          5720
+rating                          5.0
+category_avg_price          3379.48
+brand_avg_price         3119.836538
+category_popularity             125
+brand_popularity                104
+brand_category_combo      H&M_Kurti
+predicted_price            8.532388
+Name: 468, dtype: object
+2025-11-08 20:29:28,317 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 20:29:28,341 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 20:29:28,342 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 20:29:28,354 - [INFO] - src.train_model: Train: (800, 9), Test: (200, 9)
+2025-11-08 20:29:28,354 - [INFO] - src.train_model: Detected categorical columns: ['product_id', 'category', 'brand', 'brand_category_combo']
+2025-11-08 20:30:15,634 - [INFO] - src.train_model: 📊 R² Score: -0.0900
+2025-11-08 20:30:15,634 - [INFO] - src.train_model: RMSE      : 1877.84
+2025-11-08 20:30:15,635 - [INFO] - src.train_model: MAE       : 1547.23
+2025-11-08 20:30:15,648 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 20:30:15,648 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 20:30:15,649 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 20:30:15,675 - [INFO] - src.predict: ✅ Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 20:30:15,676 - [INFO] - src.predict: 🏆 Best Product Recommendation:
+product_id                    P0469
+category                      Kurti
+brand                           H&M
+price                          5720
+rating                          5.0
+category_avg_price          3379.48
+brand_avg_price         3119.836538
+category_popularity             125
+brand_popularity                104
+brand_category_combo      H&M_Kurti
+predicted_price         5075.555324
+Name: 468, dtype: object
+2025-11-08 20:37:42,507 - [INFO] - src.data_cleaning: 🧹 Starting data cleaning process...
+2025-11-08 20:37:42,520 - [INFO] - src.data_cleaning: ✅ Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (1000, 10)
+2025-11-08 20:37:42,521 - [INFO] - src.train_model: 🚀 Training model (CatBoost)...
+2025-11-08 20:37:42,527 - [INFO] - src.train_model: Train: (800, 9), Test: (200, 9)
+2025-11-08 20:37:42,528 - [INFO] - src.train_model: Detected categorical columns: ['product_id', 'category', 'brand', 'brand_category_combo']
+2025-11-08 20:38:24,543 - [INFO] - src.train_model: 📊 R² Score: 0.6379
+2025-11-08 20:38:24,544 - [INFO] - src.train_model: RMSE      : 973.66
+2025-11-08 20:38:24,544 - [INFO] - src.train_model: MAE       : 767.06
+2025-11-08 20:38:24,558 - [INFO] - src.train_model: ✅ Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.cbm
+2025-11-08 20:38:24,558 - [INFO] - src.train_model: ✅ Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 20:38:24,559 - [INFO] - src.predict: 🔮 Starting prediction...
+2025-11-08 20:38:24,583 - [INFO] - src.predict: ✅ Predictions saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-08 20:38:24,584 - [INFO] - src.predict: 🏆 Best Product Recommendation:
+product_id                    P0280
+category                      Jeans
+brand                         Gucci
+price                          4843
+rating                          4.2
+category_avg_price      3173.151261
+brand_avg_price            5857.496
+category_popularity             119
+brand_popularity                125
+brand_category_combo    Gucci_Jeans
+predicted_price         7957.008171
+Name: 280, dtype: object

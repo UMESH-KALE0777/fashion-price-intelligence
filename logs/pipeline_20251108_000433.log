@@ -1,0 +1,13 @@
+2025-11-08 00:04:33 - [INFO] - data_cleaning: \U0001f9f9 Starting data cleaning process...
+2025-11-08 00:04:33 - [INFO] - data_cleaning: Loaded dataset with shape (200, 5)
+2025-11-08 00:04:33 - [INFO] - data_cleaning: \u2705 Cleaned data saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv, shape: (200, 6)
+2025-11-08 00:04:33 - [INFO] - train_model: \U0001f680 Training Model...
+2025-11-08 00:04:33 - [INFO] - feature_engineering: \U0001f39b\ufe0f Starting feature engineering...
+2025-11-08 00:04:33 - [INFO] - feature_engineering: \u2705 Metadata saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\metadata.pkl
+2025-11-08 00:04:33 - [INFO] - feature_engineering: Train: (160, 4), Test: (40, 4)
+2025-11-08 00:04:33 - [INFO] - train_model: Detected categorical feature indices: [1, 2]
+2025-11-08 00:04:50 - [INFO] - train_model: \U0001f4ca R²: -0.2786
+2025-11-08 00:04:50 - [INFO] - train_model: RMSE: 1656.4076
+2025-11-08 00:04:50 - [INFO] - train_model: MAE: 1435.5464
+2025-11-08 00:04:50 - [INFO] - train_model: \u2705 Model saved at C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.pkl
+2025-11-08 00:04:50 - [INFO] - predict: \U0001f52e Starting prediction...

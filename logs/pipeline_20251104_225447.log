@@ -1,0 +1,12 @@
+2025-11-04 22:54:48 - [INFO] - data_cleaning: \U0001f9f9 Starting data cleaning process...
+2025-11-04 22:54:48 - [INFO] - data_cleaning: Loaded dataset with shape (6, 5)
+2025-11-04 22:54:48 - [INFO] - data_cleaning: Detecting outliers using method: zscore
+2025-11-04 22:54:48 - [INFO] - data_cleaning: Outliers flagged: 0
+2025-11-04 22:54:48 - [INFO] - data_cleaning: \u2705 Cleaned dataset saved at: C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv
+2025-11-04 22:54:48 - [INFO] - data_cleaning: Final shape after cleaning: (6, 6)
+2025-11-04 22:54:48 - [INFO] - feature_engineering: \U0001f39b\ufe0f Starting feature engineering process...
+2025-11-04 22:54:48 - [INFO] - feature_engineering: Loaded cleaned dataset with shape: (6, 6)
+2025-11-04 22:54:48 - [INFO] - feature_engineering: Categorical columns: ['category', 'brand']
+2025-11-04 22:54:48 - [INFO] - feature_engineering: Numerical columns: ['product_id', 'rating']
+2025-11-04 22:54:48 - [INFO] - feature_engineering: Train shape: (4, 9), Test shape: (2, 9)
+2025-11-04 22:54:48 - [INFO] - feature_engineering: \u2705 Preprocessor saved at: C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\preprocessor.pkl

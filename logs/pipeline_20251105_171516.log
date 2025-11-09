@@ -1,0 +1,29 @@
+2025-11-05 17:15:17 - [INFO] - data_cleaning: \U0001f9f9 Starting data cleaning process...
+2025-11-05 17:15:17 - [INFO] - data_cleaning: Loaded dataset with shape (200, 5)
+2025-11-05 17:15:17 - [INFO] - data_cleaning: Detecting outliers using method: zscore
+2025-11-05 17:15:17 - [INFO] - data_cleaning: Outliers flagged: 0
+2025-11-05 17:15:17 - [INFO] - data_cleaning: \u2705 Cleaned dataset saved at: C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv
+2025-11-05 17:15:17 - [INFO] - data_cleaning: Final shape after cleaning: (200, 6)
+2025-11-05 17:15:17 - [INFO] - train_model: \U0001f680 Starting model training...
+2025-11-05 17:15:17 - [INFO] - feature_engineering: \U0001f39b\ufe0f Starting feature engineering process...
+2025-11-05 17:15:17 - [INFO] - feature_engineering: Loaded cleaned dataset with shape: (200, 6)
+2025-11-05 17:15:17 - [INFO] - feature_engineering: Categorical columns: ['category', 'brand']
+2025-11-05 17:15:17 - [INFO] - feature_engineering: Numerical columns: ['product_id', 'rating']
+2025-11-05 17:15:17 - [INFO] - feature_engineering: Train shape: (160, 20), Test shape: (40, 20)
+2025-11-05 17:15:17 - [INFO] - feature_engineering: \u2705 Preprocessor saved at: C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\preprocessor.pkl
+2025-11-05 17:15:17 - [INFO] - train_model: \U0001f9e0 Training XGBoost model...
+2025-11-05 17:15:18 - [INFO] - train_model: \U0001f4ca Evaluation Results:
+2025-11-05 17:15:18 - [INFO] - train_model: R² Score: -0.6876
+2025-11-05 17:15:18 - [INFO] - train_model: RMSE: 1902.9428
+2025-11-05 17:15:18 - [INFO] - train_model: MAE: 1630.6859
+2025-11-05 17:15:18 - [INFO] - train_model: \u2705 Trained model saved at: C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\models\trained_model.pkl
+2025-11-05 17:15:18 - [INFO] - predict: \U0001f52e Starting prediction process...
+2025-11-05 17:15:18 - [INFO] - predict: \u2705 Predictions saved at: C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\predictions.csv
+2025-11-05 17:15:18 - [INFO] - predict: \U0001f3c6 Highest predicted value item:
+product_id                P200
+category                Hoodie
+brand                     Puma
+price                     4970
+rating                     3.8
+predicted_price    4960.161133
+Name: 199, dtype: object

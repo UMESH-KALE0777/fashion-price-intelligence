@@ -1,0 +1,6 @@
+2025-11-04 22:52:12 - [INFO] - data_cleaning: \U0001f9f9 Starting data cleaning process...
+2025-11-04 22:52:12 - [INFO] - data_cleaning: Loaded dataset with shape (6, 5)
+2025-11-04 22:52:12 - [INFO] - data_cleaning: Detecting outliers using method: zscore
+2025-11-04 22:52:12 - [INFO] - data_cleaning: Outliers flagged: 0
+2025-11-04 22:52:12 - [INFO] - data_cleaning: \u2705 Cleaned dataset saved at: C:\Users\UMESH KALE\OneDrive\Desktop\fashion_predictor real one\data\clean_data.csv
+2025-11-04 22:52:12 - [INFO] - data_cleaning: Final shape after cleaning: (6, 6)
