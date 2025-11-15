@@ -12,22 +12,37 @@ This project bridges machine learning and real-world retail analytics — perfec
 ⚙️ Features
 
 ✅ Upload your fashion store dataset (CSV)
+
 ✅ Automatically trains an ML model (CatBoostRegressor)
+
 ✅ Predicts product prices based on brand, category, and popularity
+
 ✅ Displays Actual vs Predicted results visually
+
 ✅ Generates premium business insights, including:
+
 Category performance
+
 Brand strength index
+
 Bestseller identification
+
 Price strategy recommendations
 
 🧩 Tech Stack
+
 Category	Tools / Libraries
+
 Language	Python
+
 ML Model	CatBoostRegressor
+
 Data Handling	Pandas, NumPy, Scikit-Learn
+
 Visualization	Plotly, Streamlit
+
 Deployment	Streamlit Cloud
+
 Version Control	Git + GitHub
 
 📂 Project Structure
